@@ -52,13 +52,11 @@ const ProfileScreen = () => {
     getRides();
     fetchBalance();
   }, []);
-
-  // useFocusEffect(
-  //   useCallback(() => {
-  //     fetchBalance();
-  //   }, []),
-  // );
-
+  useFocusEffect(
+    useCallback(() => {
+      fetchBalance();
+    }, []),
+  );
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -81,7 +79,7 @@ const ProfileScreen = () => {
           {'\n'}Past Rides
         </Text>
         <Text style={styles.stat}>
-          {userData.balance}₹{'\n'}Balance
+          {balance}₹{'\n'}Balance
         </Text>
       </View>
       <View style={styles.bottomline}></View>

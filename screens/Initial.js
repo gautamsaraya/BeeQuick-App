@@ -84,17 +84,11 @@ const Initial = () => {
         const userData = JSON.parse(await AsyncStorage.getItem('user'));
         const token = userData.token;
         if (token) {
-          // await AsyncStorage.removeItem('authToken');
-          // navigation.navigate('Login');
-          // Token exists, navigate to home screen
-          // navigation.navigate('Rental');
           const checkCurrentRide = async () => {
             const rideData = JSON.parse(
               await AsyncStorage.getItem('currentRide'),
             );
             if (rideData) {
-              // await AsyncStorage.removeItem('currentRide');
-              // navigation.navigate('Login');
               const {_id, username, bikeId, loc_pick, time_pick} = rideData;
               console.log(rideData);
 
@@ -125,18 +119,6 @@ const Initial = () => {
 
     checkToken();
   }, [navigation]);
-
-  // useEffect(() => {
-  //   const checkCurrentRide = async () => {
-  //     const rideData = await AsyncStorage.getItem('currentRide');
-  //     if (rideData) {
-  //       const { rideId, username, bikeId, loc_pick, time_pick } = JSON.parse(rideData);
-  //       navigation.navigate('Status', { rideId, username, bikeId, loc_pick, time_pick });
-  //     }
-  //   };
-
-  //   checkCurrentRide();
-  // }, []);
 
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
